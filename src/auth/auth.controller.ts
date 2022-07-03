@@ -1,5 +1,5 @@
 import { Body, Controller, Headers, Post } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { ReqLogin } from 'dto/auth/login.dto';
 import { baseHeader, baseResponse } from 'dto/base.dto';
 import { AuthService } from './auth.service';
@@ -10,7 +10,7 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('/Login')
-  //   @ApiOkResponse({ description: 'success', type: DtoResChangePostCategory })
+  @ApiOkResponse({ description: 'success', type: baseResponse })
   async doLogin(
     @Headers() headers: baseHeader,
     @Body() body: ReqLogin,
