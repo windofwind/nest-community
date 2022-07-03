@@ -20,5 +20,6 @@
   "sentry": {
     "dsn": "https://31cc3eaf34564dabaa5ecf27082183f0@o1229638.ingest.sentry.io/6529728",
     "serverName": "nest-community"
-  }
+  },
+  "moongo": {}
 }
