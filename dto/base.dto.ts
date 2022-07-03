@@ -6,8 +6,8 @@ export class baseHeader {
   @IsOptional()
   authorization: string;
 
-  @IsString()
-  sid: string;
+  //   @IsString()
+  //   sid: string;
 }
 
 export class baseReqeust {}
