@@ -31,21 +31,4 @@ export class AuthService {
 
     return user;
   }
-
-  public async find_user(user_id: string) {
-    let userInfo;
-
-    try {
-      userInfo = await this.pg.task('find user', async (t: ITask<any>) => {
-        const userInfo = await t.one<UserDetail>(
-          'SELECT * FROM user_info WHERE user_id = ${user_id};',
-          { user_id },
-        );
-
-        return userInfo;
-      });
-    } catch (e: any) {}
-
-    return userInfo;
-  }
 }
