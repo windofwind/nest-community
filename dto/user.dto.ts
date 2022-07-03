@@ -1,7 +1,7 @@
 import { Exclude } from 'class-transformer';
-import { IsString } from 'class-validator';
+import { IsNumber, IsString } from 'class-validator';
 
-export class userInfo {
+export class UserInfo {
   @Exclude()
   user_seq_no: string;
 
@@ -10,4 +10,9 @@ export class userInfo {
 
   @IsString()
   user_nick: string;
+}
+
+export class UserDetail extends UserInfo {
+  @IsNumber()
+  user_point: number;
 }

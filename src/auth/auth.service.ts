@@ -1,6 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { UserInfo } from 'dist/dto/user.dto';
+import { UserInfo } from 'dto/user.dto';
 import { ReqLogin } from 'dto/auth/login.dto';
+import { UserDetail } from 'dto/user.dto';
 import { NEST_PGPROMISE_CONNECTION } from 'nestjs-pgpromise';
 import { IDatabase, ITask } from 'pg-promise';
 
@@ -10,8 +11,9 @@ export class AuthService {
     @Inject(NEST_PGPROMISE_CONNECTION) private readonly pg: IDatabase<any>,
   ) {}
 
-  async login(reqLogin: ReqLogin): Promise<UserInfo | any> {
+  public async login(reqLogin: ReqLogin): Promise<UserInfo | any> {
     let user;
+
     try {
       user = await this.pg.task('request login', async (t: ITask<any>) => {
         const user = await t.one<UserInfo>(
@@ -30,7 +32,20 @@ export class AuthService {
     return user;
   }
 
-  async find_user() {
-    console.info('find_user');
+  public async find_user(user_id: string, user_pwd: string) {
+    let userInfo;
+
+    try {
+      userInfo = await this.pg.task('find user', async (t: ITask<any>) => {
+        const userInfo = await t.one<UserDetail>(
+          'SELECT * FROM user_info WHERE user_id = ${user_id} AND user_pwd = ${user_pwd};',
+          { user_id, user_pwd },
+        );
+
+        return userInfo;
+      });
+    } catch (e: any) {}
+
+    return userInfo;
   }
 }
