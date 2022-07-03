@@ -1,6 +1,7 @@
 import { IsNotEmpty, IsString } from 'class-validator';
 import {} from 'class-transformer';
-export class reqRegist {
+
+export class ReqRegist {
   @IsString()
   @IsNotEmpty()
   user_id: string;
@@ -12,6 +13,10 @@ export class reqRegist {
   @IsString()
   @IsNotEmpty()
   user_email: string;
+
+  @IsString()
+  @IsNotEmpty()
+  access_fl: string;
 }
 
-export class resRegist {}
+export class ResRegist {}
