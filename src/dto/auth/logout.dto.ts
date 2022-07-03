@@ -1,5 +1,5 @@
 import { IsOptional, IsString } from 'class-validator';
-import { baseResponse } from 'dist/dto/base.dto';
+import { baseResponse } from 'src/dto/base.dto';
 
 export class ReqLogout {
   @IsString()

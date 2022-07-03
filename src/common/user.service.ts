@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { UserInfo } from 'dto/user.dto';
+import { UserInfo } from 'src/dto/user.dto';
 import { NEST_PGPROMISE_CONNECTION } from 'nestjs-pgpromise';
 import { IDatabase, ITask } from 'pg-promise';
 

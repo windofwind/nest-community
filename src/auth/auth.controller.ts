@@ -1,7 +1,7 @@
 import { Body, Controller, Headers, Post } from '@nestjs/common';
 import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
-import { ReqLogin } from 'dto/auth/login.dto';
-import { baseHeader, baseResponse } from 'dto/base.dto';
+import { ReqLogin } from 'src/dto/auth/login.dto';
+import { baseHeader, baseResponse } from 'src/dto/base.dto';
 import { AuthService } from './auth.service';
 
 @ApiTags('auth')
