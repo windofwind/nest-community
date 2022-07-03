@@ -1,0 +1,16 @@
+{
+  "server": {
+    "host": "0.0.0.0",
+    "port": 3000
+  },
+  "swagger": {
+    "title": "community",
+    "description": "community service api",
+    "version": "1.0",
+    "path": "api"
+  },
+  "sentry": {
+    "dsn": "https://31cc3eaf34564dabaa5ecf27082183f0@o1229638.ingest.sentry.io/6529728",
+    "serverName": "nest-community"
+  }
+}

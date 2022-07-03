@@ -1,0 +1,4 @@
+{
+  "name": "nest-community",
+  "script": "./dist/main.js"
+}
