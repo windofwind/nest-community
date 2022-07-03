@@ -14,7 +14,7 @@ import { AuthModule } from './auth/auth.module';
       connection: {
         host: config.get<string>('postgres.host'),
         port: config.get<number>('postgres.port'),
-        database: config.get<string>('postgres.host'),
+        database: config.get<string>('postgres.database'),
         user: config.get<string>('postgres.user'),
         password: config.get<string>('postgres.password'),
       },
