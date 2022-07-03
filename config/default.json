@@ -3,6 +3,14 @@
     "host": "0.0.0.0",
     "port": 3000
   },
+  "postgres": {
+    "host": "localhost",
+    "port": 5432,
+    "max": 30,
+    "database": "nest_community",
+    "user": "postgres",
+    "password": "db.postgres"
+  },
   "swagger": {
     "title": "community",
     "description": "community service api",
