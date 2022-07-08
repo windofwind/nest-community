@@ -34,3 +34,7 @@ pm2 start ecosystem.config.json --env prooduction
 ## License
 
 [nest-community](https://github.com/windofwind/nest-community) is [MIT licensed](LICENSE).
+
+# TODO
+
+- [x] install mongo
