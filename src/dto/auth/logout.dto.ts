@@ -1,10 +1,10 @@
-import { IsOptional, IsString } from 'class-validator';
-import { baseResponse } from 'src/dto/base.dto';
+import { IsOptional, ValidateNested } from 'class-validator';
+import { baseResponse } from '../base.dto';
 
-export class ReqLogout {
-  @IsString()
+export class ReqLogout {}
+
+export class ResLogout extends baseResponse {
   @IsOptional()
-  user_id: string;
+  @ValidateNested()
+  data: any[] = [];
 }
-
-export class ResLogout extends baseResponse {}

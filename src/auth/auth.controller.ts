@@ -14,7 +14,17 @@ export class AuthController {
   async doLogin(
     @Headers() headers: baseHeader,
     @Body() body: ReqLogin,
-  ): Promise<any> {
+  ): Promise<baseResponse> {
+    const result = this.authService.login(body);
+    return result;
+  }
+
+  @Post('/Logout')
+  @ApiOkResponse({ description: 'success', type: baseResponse })
+  async doLogout(
+    @Headers() headers: baseHeader,
+    @Body() body: ReqLogin,
+  ): Promise<baseResponse> {
     const result = this.authService.login(body);
     return result;
   }

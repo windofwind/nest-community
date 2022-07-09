@@ -37,4 +37,13 @@ pm2 start ecosystem.config.json --env prooduction
 
 # TODO
 
-- [x] install mongo
+## next
+
+- [x] install postgres
+- [x] create table - user_info
+- [x] api - login
+
+## next
+
+- [ ] install mongo
+- [ ] write user action log to moogo

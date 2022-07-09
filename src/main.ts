@@ -28,9 +28,9 @@ async function bootstrap() {
   );
 
   // console.info(`http://${v4.sync()}:${config.get<number>('server.port')}/api`);
-  console.info(
-    `http://${'localhost'}:${config.get<number>('server.port')}/api`,
-  );
+  // console.info(
+  //   `http://${'localhost'}:${config.get<number>('server.port')}/api`,
+  // );
 }
 
 bootstrap();

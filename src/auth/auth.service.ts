@@ -1,9 +1,10 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { UserInfo } from 'src/dto/user.dto';
-import { ReqLogin } from 'src/dto/auth/login.dto';
-import { UserDetail } from 'src/dto/user.dto';
 import { NEST_PGPROMISE_CONNECTION } from 'nestjs-pgpromise';
 import { IDatabase, ITask } from 'pg-promise';
+
+import { UserInfo } from 'src/dto/user.dto';
+import { ReqLogin } from 'src/dto/auth/login.dto';
+import { baseResponse } from 'src/dto/base.dto';
 
 @Injectable()
 export class AuthService {
@@ -11,7 +12,7 @@ export class AuthService {
     @Inject(NEST_PGPROMISE_CONNECTION) private readonly pg: IDatabase<any>,
   ) {}
 
-  public async login(reqLogin: ReqLogin): Promise<UserInfo | any> {
+  public async login(reqLogin: ReqLogin): Promise<baseResponse> {
     let user;
 
     try {
@@ -30,5 +31,15 @@ export class AuthService {
     }
 
     return user;
+  }
+
+  /**
+   * 로그인 성공 또는 실패시 로그인 테이블에 기록합니다.
+   *
+   * @param {ITask<any>} [t=this.pg]
+   * @memberof AuthService
+   */
+  public async writeLoginInfo(t: ITask<any> = null) {
+    await t.none('', {});
   }
 }

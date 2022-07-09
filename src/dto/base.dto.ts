@@ -7,6 +7,7 @@ import {
   IsOptional,
   IsString,
 } from 'class-validator';
+import dayjs from 'dayjs';
 
 /**
  * Headers 정의
@@ -78,4 +79,21 @@ export class baseResponse {
   @IsBoolean()
   @IsNotEmpty()
   success: boolean;
+
+  @ApiProperty({ description: '에러코드' })
+  @IsBoolean()
+  @IsNotEmpty()
+  errCd: boolean;
+
+  @ApiProperty({ description: '에러메세지' })
+  @IsBoolean()
+  @IsNotEmpty()
+  errMsg: string;
+
+  @IsString()
+  timestamp: number;
+
+  constructor() {
+    this.timestamp = dayjs().valueOf();
+  }
 }
