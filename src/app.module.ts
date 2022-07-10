@@ -3,10 +3,12 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import config from 'config';
+import { MongooseModule } from '@nestjs/mongoose';
 import { NestPgpromiseModule } from 'nestjs-pgpromise';
 import { AuthController } from './auth/auth.controller';
 import { AuthService } from './auth/auth.service';
 import { AuthModule } from './auth/auth.module';
+import { UploadModule } from './upload/upload.module';
 
 @Module({
   imports: [
@@ -19,7 +21,9 @@ import { AuthModule } from './auth/auth.module';
         password: config.get<string>('postgres.password'),
       },
     }),
+    MongooseModule.forRoot('mongodb://localhost/logData'),
     AuthModule,
+    UploadModule,
   ],
   controllers: [AppController, AuthController],
   providers: [AppService, AuthService],
