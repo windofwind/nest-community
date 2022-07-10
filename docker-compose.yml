@@ -11,7 +11,17 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: db.postgres
+    restart: always
 
-  # redis:
-  #   container_name: community-redis
-  #   image: redis:6-alpine
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ./docker-data/mongodb:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=db.postgres
+      - MONGO_INITDB_DATABASE=logData
