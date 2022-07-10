@@ -1,4 +1,4 @@
-import { Body, Controller, Headers, Post } from '@nestjs/common';
+import { Body, Controller, Get, Headers, Post } from '@nestjs/common';
 import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { ReqLogin } from 'src/dto/auth/login.dto';
 import { baseHeader, baseResponse } from 'src/dto/base.dto';
@@ -27,5 +27,10 @@ export class AuthController {
   ): Promise<baseResponse> {
     const result = this.authService.login(body);
     return result;
+  }
+
+  @Get('/History')
+  async getHistory() {
+    return { desc: 'history' };
   }
 }

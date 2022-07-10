@@ -75,17 +75,17 @@ export class baseHeader {
 export class baseReqeust {}
 
 export class baseResponse {
-  @ApiProperty({ description: '성공 여부' })
+  @ApiProperty({ description: '성공 여부', required: true })
   @IsBoolean()
   @IsNotEmpty()
   success: boolean;
 
-  @ApiProperty({ description: '에러코드' })
+  @ApiProperty({ description: '에러코드', required: false })
   @IsBoolean()
   @IsNotEmpty()
   errCd: boolean;
 
-  @ApiProperty({ description: '에러메세지' })
+  @ApiProperty({ description: '에러메세지', required: false })
   @IsBoolean()
   @IsNotEmpty()
   errMsg: string;
