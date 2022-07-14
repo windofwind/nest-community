@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 
+import compression from 'compression';
 import config from 'config';
 // import { v4 } from 'internal-ip';
 import dayjs from 'dayjs';
@@ -18,6 +19,7 @@ async function bootstrap() {
 
   const app = await NestFactory.create(AppModule);
 
+  app.use(compression());
   useValidate(app);
   useSwegger(app);
   useSentry(app);

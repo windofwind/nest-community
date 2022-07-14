@@ -29,6 +29,7 @@
     "@sentry/node": "^7.4.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "compression": "^1.7.4",
     "config": "^3.3.7",
     "cross-env": "^7.0.3",
     "dayjs": "^1.11.3",
