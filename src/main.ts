@@ -29,10 +29,7 @@ async function bootstrap() {
     config.get<string>('server.host'),
   );
 
-  // console.info(`http://${v4.sync()}:${config.get<number>('server.port')}/api`);
-  // console.info(
-  //   `http://${'localhost'}:${config.get<number>('server.port')}/api`,
-  // );
+  console.log(`Application is running on: ${await app.getUrl()}/api`);
 }
 
 bootstrap();

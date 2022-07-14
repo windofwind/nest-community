@@ -1,16 +1,15 @@
 ```sql
 -- 로그인 정보 관리
 create table if not exists user_info (
-	user_seq varchar(8) not null
-		constraint user_info_pk unique,
+	user_seq varchar(8) not null constraint user_info_pk unique,
 	user_id varchar(64) not null,
 	user_pwd varchar(256) not null,
 	user_nick varchar(128) not null,
 	user_level int default 1 not null,
 	user_role bpchar(1) default '1' not null,
-    user_email varchar(256) not null,
+  user_email varchar(256) not null,
 	user_crt_dtm timestamp default now() not null,
-    user_stat_cd varchar(4) default '0000' not null,
+  user_stat_cd varchar(4) default '0000' not null,
 	del_fl bpchar(1) default '1' not null
 );
 

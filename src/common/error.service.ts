@@ -11,3 +11,12 @@ export class CustomError extends Error implements ICustomError {
     super(message);
   }
 }
+
+export class LoginFailError extends CustomError {
+  statusCode: number = 400;
+  errorCode: string = '1001';
+
+  constructor(message: string = '로그인에 실패 하였습니다.') {
+    super(message);
+  }
+}
