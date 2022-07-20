@@ -4,7 +4,11 @@ export const useValidate = (app): void => {
   app.disable('x-powered-by');
   app.useGlobalPipes(
     new ValidationPipe({
-      disableErrorMessages: true,
+      whitelist: true,
+      validationError: { target: false },
+      forbidNonWhitelisted: true,
+      transform: true,
+      skipMissingProperties: true,
     }),
   );
 };
