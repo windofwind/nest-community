@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsOptional, IsString, ValidateNested } from 'class-validator';
 import { baseResponse } from '../base.dto';
+import { UserInfo } from '../user.dto';
 
 export class ReqLogin {
   @ApiProperty({ description: '아이디1', required: true })
@@ -13,7 +14,8 @@ export class ReqLogin {
 }
 
 export class ResLogin extends baseResponse {
+  @ApiProperty({ description: '유저정보', required: true })
   @IsOptional()
   @ValidateNested()
-  data: any[] = [];
+  data: UserInfo[] = [];
 }
