@@ -1,5 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Type } from 'class-transformer';
 import { IsOptional, IsString, ValidateNested } from 'class-validator';
+import { userInfo } from 'os';
 import { baseResponse } from '../base.dto';
 import { UserInfo } from '../user.dto';
 
@@ -14,7 +16,12 @@ export class ReqLogin {
 }
 
 export class ResLogin extends baseResponse {
-  @ApiProperty({ description: '유저정보', required: true })
+  @ApiProperty({
+    description: '유저정보',
+    required: true,
+    type: UserInfo,
+    isArray: true,
+  })
   @IsOptional()
   @ValidateNested()
   data: UserInfo[] = [];
